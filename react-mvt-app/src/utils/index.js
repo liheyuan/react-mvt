@@ -11,5 +11,3 @@ export const cleanObject = (object) => {
   });
   return result;
 };
-
-console.log(isFalsy("f"));
