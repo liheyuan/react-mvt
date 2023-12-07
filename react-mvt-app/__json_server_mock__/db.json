@@ -2,42 +2,45 @@
   "news": [
     {
       "id": 1,
-      "name": "新闻1",
+      "title": "新闻1",
       "userId": 1
     },
     {
       "id": 2,
-      "name": "新闻2",
+      "title": "新闻2",
       "userId": 2
     },
     {
       "id": 3,
-      "name": "新闻3",
+      "title": "新闻3",
       "userId": 1
     },
     {
       "id": 4,
-      "name": "新闻4",
+      "title": "新闻4",
       "userId": 2
     },
     {
       "id": 5,
-      "name": "新闻5",
+      "title": "新闻5",
       "userId": 3
     }
   ],
   "users": [
     {
       "id": 1,
-      "name": "用户1"
+      "name": "用户1",
+      "email": "user1@email.com"
     },
     {
       "id": 2,
-      "name": "用户2"
+      "name": "用户2",
+      "email": "user2@email.com"
     },
     {
       "id": 3,
-      "name": "用户3"
+      "name": "用户3",
+      "email": "user@email.com"
     }
   ]
 }
