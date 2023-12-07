@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react";
 import { List } from "./list";
 import { SearchPanel } from "./search-panel";
-import { cleanObject } from "../../utils";
+import { cleanObject, useDebounce, useMount } from "../../utils";
 import qs from "qs";
-
 const apiUrl = process.env.REACT_APP_API_URL;
 
 export const NewsList = () => {
@@ -11,6 +10,8 @@ export const NewsList = () => {
     name: "",
     userId: "",
   });
+
+  const debouncedParam = useDebounce(param, 200);
 
   const [list, setList] = useState([]);
 
@@ -24,15 +25,15 @@ export const NewsList = () => {
         }
       },
     );
-  }, [param]);
+  }, [debouncedParam]);
 
-  useEffect(() => {
+  useMount(() => {
     fetch(`${apiUrl}/users`).then(async (response) => {
       if (response.ok) {
         setUsers(await response.json());
       }
     });
-  }, []);
+  });
 
   return (
     <div>

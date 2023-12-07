@@ -1,3 +1,5 @@
+import { useEffect, useState } from "react";
+
 // prettier-ignore
 export const isFalsy = (value: any) => value === 0 ? false : !value;
 
@@ -12,4 +14,22 @@ export const cleanObject = (object: object) => {
     }
   });
   return result;
+};
+
+export const useMount = (callback: () => void) => {
+  useEffect(() => {
+    callback();
+  }, []);
+};
+
+export const useDebounce = (value: any, delay: number = 200) => {
+  const [debounceValue, setDebounceValue] = useState(value);
+  useEffect(() => {
+    // set value after delay
+    const timeout = setTimeout(() => setDebounceValue(value), delay);
+
+    // clear called after the next useEffect call
+    return () => clearTimeout(timeout);
+  }, [value, delay]);
+  return debounceValue;
 };
