@@ -19,6 +19,12 @@ module.exports = (req, res, next) => {
 
   // me
   if (req.method === "GET" && req.path === "/me") {
+    if (!req.headers.authorization) {
+      return res.status(401).json({
+        message: "请先登录",
+      });
+    }
+
     return res.status(200).json({
       user: {
         id: 1,
