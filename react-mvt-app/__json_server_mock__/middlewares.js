@@ -1,4 +1,5 @@
 module.exports = (req, res, next) => {
+  // login
   if (req.method === "POST" && req.path === "/login") {
     if (req.body.username === "admin" && req.body.password === "admin") {
       return res.status(200).json({
@@ -15,5 +16,18 @@ module.exports = (req, res, next) => {
       });
     }
   }
+
+  // me
+  if (req.method === "GET" && req.path === "/me") {
+    return res.status(200).json({
+      user: {
+        id: 1,
+        name: "admin",
+        email: "admin@admin.com",
+        token: "123456789",
+      },
+    });
+  }
+
   next();
 };
