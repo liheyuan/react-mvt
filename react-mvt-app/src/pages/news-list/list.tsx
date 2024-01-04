@@ -1,4 +1,5 @@
 import { User } from "./search-panel";
+import { Table } from "antd";
 
 interface News {
   id: number;
@@ -13,21 +14,27 @@ interface ListProps {
 
 export const List = ({ list, users }: ListProps) => {
   return (
-    <table>
-      <thead>
-        <tr>
-          <th>名称</th>
-          <th>作者</th>
-        </tr>
-      </thead>
-      <tbody>
-        {list.map((news) => (
-          <tr key={news.id}>
-            <td>{news.title}</td>
-            <td>{users.find((user) => user.id === news.userId)?.name}</td>
-          </tr>
-        ))}
-      </tbody>
-    </table>
+    <Table
+      pagination={false}
+      columns={[
+        {
+          title: "名称",
+          dataIndex: "title",
+          key: "title",
+          sorter: (a: News, b: News) => a.title.localeCompare(b.title),
+        },
+        {
+          title: "作者",
+          dataIndex: "userId",
+          key: "userId",
+          render: (userId: number) => {
+            return (
+              <span>{users.find((user) => user.id === userId)?.name}</span>
+            );
+          },
+        },
+      ]}
+      dataSource={list}
+    />
   );
 };
