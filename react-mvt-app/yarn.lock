@@ -3998,8 +3998,8 @@ data-urls@^2.0.0:
 
 dayjs@^1.11.10:
   version "1.11.10"
-  resolved "https://registry.yarnpkg.com/dayjs/-/dayjs-1.11.10.tgz#68acea85317a6e164457d6d6947564029a6a16a0"
-  integrity sha512-vjAczensTgRcqDERK0SR2XMwsF/tSvnvlv6VcF2GIhg6Sx4yOIt/irsr1RDJsKiIyBzJDpCoXiWWq28MqH2cnQ==
+  resolved "http://npm.zhenguanyu.com/dayjs/download/dayjs-1.11.10.tgz#68acea85317a6e164457d6d6947564029a6a16a0"
+  integrity sha1-aKzqhTF6bhZEV9bWlHVkAppqFqA=
 
 debug@2.6.9, debug@^2.6.0:
   version "2.6.9"

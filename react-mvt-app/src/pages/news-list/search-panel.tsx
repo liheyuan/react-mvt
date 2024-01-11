@@ -18,33 +18,38 @@ interface SearchPanelProps {
 
 export const SearchPanel = ({ users, param, setParam }: SearchPanelProps) => {
   return (
-    <Form action="">
-      <Input
-        type="text"
-        value={param.title}
-        onChange={(evt) =>
-          setParam({
-            ...param,
-            title: evt.target.value,
-          })
-        }
-      ></Input>
-      <Select
-        value={param.userId}
-        onChange={(value) =>
-          setParam({
-            ...param,
-            userId: value,
-          })
-        }
-      >
-        <Select.Option value={""}>作者</Select.Option>
-        {users.map((user) => (
-          <option value={user.id} key={user.id}>
-            {user.name}
-          </option>
-        ))}
-      </Select>
+    <Form style={{ marginBottom: "2rem" }} layout={"inline"} action="">
+      <Form.Item>
+        <Input
+          placeholder="新闻标题"
+          type="text"
+          value={param.title}
+          onChange={(evt) =>
+            setParam({
+              ...param,
+              title: evt.target.value,
+            })
+          }
+        ></Input>
+      </Form.Item>
+      <Form.Item>
+        <Select
+          value={param.userId}
+          onChange={(value) =>
+            setParam({
+              ...param,
+              userId: value,
+            })
+          }
+        >
+          <Select.Option value={""}>作者</Select.Option>
+          {users.map((user) => (
+            <option value={user.id} key={user.id}>
+              {user.name}
+            </option>
+          ))}
+        </Select>
+      </Form.Item>
     </Form>
   );
 };

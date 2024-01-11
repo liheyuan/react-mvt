@@ -1,3 +1,4 @@
+import dayjs from "dayjs";
 import { User } from "./search-panel";
 import { Table } from "antd";
 
@@ -30,6 +31,18 @@ export const List = ({ list, users }: ListProps) => {
           render: (userId: number) => {
             return (
               <span>{users.find((user) => user.id === userId)?.name}</span>
+            );
+          },
+        },
+        {
+          title: "创建时间",
+          dataIndex: "createdTime",
+          key: "createdTime",
+          render: (createdTime) => {
+            return (
+              <span>
+                {createdTime ? dayjs(createdTime).format("YYYY-MM-DD") : "无"}
+              </span>
             );
           },
         },
