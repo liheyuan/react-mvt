@@ -21,6 +21,7 @@ export const NewsList = () => {
 
   useEffect(() => {
     client("news", { data: cleanObject(debouncedParam) }).then(setList);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [debouncedParam]);
 
   useMount(() => {
